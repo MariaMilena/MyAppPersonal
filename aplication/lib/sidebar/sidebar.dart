@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../sidebar/menu_item.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -68,7 +69,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
               Expanded(
                   child: Container(
                     height: screenHeight,
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(horizontal: screenWidth*0.06),
                     color: Colors.amber,
                     child: SingleChildScrollView(
                       child: Column(
@@ -77,11 +78,11 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                           ListTile(
                             title: Text(
                               "Milena",
-                              style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w800),
+                              style: TextStyle(color: Colors.white, fontSize: screenHeight*0.04, fontWeight: FontWeight.w800),
                             ),
                             subtitle: Text(
                               "milena20182018@gmail.com",
-                              style: TextStyle(color: Colors.amber.shade100, fontSize: 15),
+                              style: TextStyle(color: Colors.amber.shade100, fontSize: screenHeight*0.023),
                             ),
                             leading: CircleAvatar(
                               /*child: Icon(
@@ -115,16 +116,19 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                   onTap: (){
                     onIconPressed();
                   },
-                  child: Container(
-                    width: 35,
-                    height: 110,
-                    color: Colors.amber,
-                    alignment: Alignment.centerLeft,
-                    child: AnimatedIcon(
-                      progress: _animationController.view,
-                      icon: AnimatedIcons.menu_close,
-                      color: Colors.white,
-                      size: 25,
+                  child: ClipPath(
+                    clipper: CustomMenuClipper(),
+                    child: Container(
+                      width: 35,
+                      height: 110,
+                      color: Colors.amber,
+                      alignment: Alignment.centerLeft,
+                      child: AnimatedIcon(
+                        progress: _animationController.view,
+                        icon: AnimatedIcons.menu_close,
+                        color: Colors.white,
+                        size: 25,
+                      ),
                     ),
                   ),
                 ),
@@ -134,5 +138,42 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
         );
       },
     );
+  }
+
+  _launchURL(String url) => launch(url);
+
+  // abrirUrl() async {
+  //   const url = "https://www.instagram.com/mm1l3n4/";
+  //   if (await canLaunch(url)) {
+  //     await launch(url);
+  //   } else {
+  //     throw 'Could not launch $url';
+  //   }
+  // }
+}
+
+class CustomMenuClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Paint paint = Paint();
+    paint.color = Colors.white;
+
+    final width = size.width;
+    final height = size.height;
+
+    Path path = Path();
+    path.moveTo(0, 0);
+    path.quadraticBezierTo(0, 8, 10, 16);
+    path.quadraticBezierTo(width - 1, height / 2 - 20, width, height / 2);
+    path.quadraticBezierTo(width + 1, height / 2 + 20, 10, height - 16);
+    path.quadraticBezierTo(0, height - 8, 0, height);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
   }
 }
