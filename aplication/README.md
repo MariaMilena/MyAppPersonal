@@ -1,6 +1,8 @@
 # aplication
 
-A new Flutter project.
+<p align="center">
+    <img src="videoApp.gif" />
+</p>
 
 ## Getting Started
 
