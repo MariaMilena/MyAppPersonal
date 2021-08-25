@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 class MenuItem extends StatelessWidget {
   final IconData icon;
   final String title;
   final String url;
-  final Function onTap;
 
-  const MenuItem({Key key, this.icon, this.title, this.url, this.onTap}) : super(key: key);
+  const MenuItem({Key key, this.icon, this.title, this.url}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        launch(url);
+      },
       child: Padding(
         padding: EdgeInsets.all(size.height*0.025),
         child: Row(

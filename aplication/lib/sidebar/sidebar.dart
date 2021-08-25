@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../sidebar/menu_item.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -101,10 +100,10 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             endIndent: 32,
                           ),
                           MenuItem(icon: FontAwesomeIcons.instagram, title: "Instagram", url: "https://www.instagram.com/mm1l3n4/"),
-                          MenuItem(icon: FontAwesomeIcons.linkedin, title: "Linkedin"),
+                          MenuItem(icon: FontAwesomeIcons.linkedin, title: "Linkedin", url: "https://www.linkedin.com/in/maria-milena-0a6b22212/"),
                           MenuItem(icon: FontAwesomeIcons.github, title: "Github", url: "https://github.com/MariaMilena"),
-                          MenuItem(icon: FontAwesomeIcons.google, title: "Gmail"),
-                          MenuItem(icon: FontAwesomeIcons.whatsapp, title: "Whatsapp"),
+                          // MenuItem(icon: FontAwesomeIcons.google, title: "Gmail", url: Uri(scheme: 'Milena', path: "milena20182018@gmail.com").toString()),
+                          MenuItem(icon: FontAwesomeIcons.whatsapp, title: "Whatsapp", url: "https://api.whatsapp.com/send?phone=5579981341962"),
                         ],
                       ),
                     ),
@@ -139,17 +138,6 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
       },
     );
   }
-
-  _launchURL(String url) => launch(url);
-
-  // abrirUrl() async {
-  //   const url = "https://www.instagram.com/mm1l3n4/";
-  //   if (await canLaunch(url)) {
-  //     await launch(url);
-  //   } else {
-  //     throw 'Could not launch $url';
-  //   }
-  // }
 }
 
 class CustomMenuClipper extends CustomClipper<Path> {
