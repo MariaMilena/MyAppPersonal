@@ -13,8 +13,8 @@ class SidebarLayout extends StatelessWidget {
       body: Stack(
         children: [
           HomePage(),
+          Botao_next(),
           SideBar(),
-          Botao_next()
         ],
       ),
     );
