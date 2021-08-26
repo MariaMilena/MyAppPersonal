@@ -1,7 +1,7 @@
 # aplication
 
 <p align="center">
-    <img src="videoApp.gif" />
+    <img width="30%" height="30%" src="videoApp.gif" />
 </p>
 
 ## dependencies:
