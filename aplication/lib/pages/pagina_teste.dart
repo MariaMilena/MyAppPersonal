@@ -5,8 +5,17 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
-      child: Center(child: Text("HOME")),
+      width: size.width,
+      height: size.height,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        image: DecorationImage(
+          fit: BoxFit.fitWidth,
+          image: AssetImage("assets/imgPrinc.png"),
+        )
+      ),
     );
   }
 }
