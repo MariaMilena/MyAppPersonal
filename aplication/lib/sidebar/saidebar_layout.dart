@@ -9,11 +9,16 @@ class SidebarLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
+        alignment: Alignment.center,
         children: [
           HomePage(),
-          Botao_next(),
+          Positioned(
+              bottom: size.height*0.035,
+              child: Botao_next(rota: '/formulario', nomeBot: "PRÓXIMO", icone: Icons.arrow_forward_outlined)
+          ),
           SideBar(),
         ],
       ),

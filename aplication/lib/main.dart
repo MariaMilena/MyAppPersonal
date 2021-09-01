@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:aplication/sidebar/saidebar_layout.dart';
+import 'package:aplication/pages/form.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SidebarLayout(),
+      //home: SidebarLayout(),
+      initialRoute: '/',
+      routes: {
+        '/':(context) => SidebarLayout(),
+        '/formulario':(context) => Formulario(),
+      },
     );
   }
 }
