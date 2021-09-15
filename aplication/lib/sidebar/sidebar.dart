@@ -20,7 +20,6 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
 
   final _animationDuration = const Duration(milliseconds: 500);
 
-  @override
   void initState(){
     super.initState();
     _animationController = AnimationController(vsync: this, duration: _animationDuration);
@@ -28,6 +27,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
     isSidebarOpenedStream = isSidebarOpenedStreamController.stream;
     isSidebarOpenedStreamSink = isSidebarOpenedStreamController.sink;
   }
+  @override
 
   void dispose(){
     _animationController.dispose();

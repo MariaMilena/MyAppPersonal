@@ -13,29 +13,35 @@ class Formulario extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text("FORM"),
         backgroundColor: Colors.amber,
         elevation: 0,
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.only(top: size.height*0.04, left: size.height*0.025, right: size.height*0.025),
-          child: Column(
-            children: [
-              ListTile(
-                contentPadding: EdgeInsets.all(0),
-                title: Text("Contato", style: TextStyle(fontWeight: FontWeight.w800, fontSize: size.height*0.04)),
-                subtitle: Text("Preencha este formulário para entrar em contato com o criador do aplicativo"),
-              ),
-              SizedBox(height: size.height*0.04),
-              TextForm(qtdL: 1,titulo: "Assunto", controller: _ass),
-              SizedBox(height: size.height*0.04),
-              TextForm(qtdL: 5,titulo: "Mensagem", controller: _mens),
-              SizedBox(height: size.height*0.04),
-              Botao_next(rota: '/', nomeBot: "ENVIAR", icone: Icons.send, funcao: sendEmailFunction),
-              //BoatoForm(size: size),
-            ],
+      ),*/
+      body: Container(
+        width: size.width,
+        height: size.height,
+        color: Colors.white,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(top: size.height*0.27, left: size.height*0.025, right: size.height*0.025),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ListTile(
+                  contentPadding: EdgeInsets.all(0),
+                  title: Text("Contato", style: TextStyle(fontWeight: FontWeight.w800, fontSize: size.height*0.04)),
+                  subtitle: Text("Preencha este formulário para entrar em contato com o criador do aplicativo"),
+                ),
+                SizedBox(height: size.height*0.04),
+                TextForm(qtdL: 1,titulo: "Assunto", controller: _ass),
+                SizedBox(height: size.height*0.04),
+                TextForm(qtdL: 5,titulo: "Mensagem", controller: _mens),
+                SizedBox(height: size.height*0.04),
+                //Botao_next(rota: '/', nomeBot: "ENVIAR", icone: Icons.send, funcao: sendEmailFunction),
+                //BoatoForm(size: size),
+              ],
+            ),
           ),
         ),
       ),

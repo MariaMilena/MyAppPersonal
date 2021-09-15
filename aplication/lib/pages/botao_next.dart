@@ -17,8 +17,8 @@ class Botao_next extends StatelessWidget {
         ScaffoldMessenger.of(context).showSnackBar(snackBar);*/
       //},
       child: Container(
-        width: size.width*0.85,
-        height: size.height*0.13,
+        width: size.width*0.78,
+        height: size.height*0.09,
         decoration: BoxDecoration(
           color: Colors.cyan,
           borderRadius: BorderRadius.circular(size.height*0.07)
@@ -32,10 +32,10 @@ class Botao_next extends StatelessWidget {
               child: Text(nomeBot, style: TextStyle(fontSize: size.height*0.035, fontWeight: FontWeight.w600, color: Colors.white)),
             ),
             Padding(
-              padding: EdgeInsets.only(right: size.width*0.02),
+              padding: EdgeInsets.only(right: size.width*0.015),
               child: Container(
-                width: size.width*0.2,
-                height: size.height*0.11,
+                width: size.width*0.16,
+                height: size.height*0.08,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(size.height*0.07)
